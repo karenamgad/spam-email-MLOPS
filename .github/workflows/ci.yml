@@ -25,15 +25,15 @@ jobs:
         run: |
           python src/train.py
 
-    - name: Build Docker image
-      run: |
-        docker build -t spam-classifier .
+      - name: Build Docker image
+        run: |
+          docker build -t spam-classifier .
 
-    - name: Run Docker container
-      run: |
-        docker run -d -p 8000:8000 --name spam-test spam-classifier
+      - name: Run Docker container
+        run: |
+          docker run -d -p 8000:8000 --name spam-test spam-classifier
 
-    - name: Test API
-      run: |
-        sleep 5
-        curl http://localhost:8000
+      - name: Test API
+        run: |
+          sleep 5
+          curl http://localhost:8000
