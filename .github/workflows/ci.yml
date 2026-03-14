@@ -24,3 +24,7 @@ jobs:
       - name: Run training script
         run: |
           python src/train.py
+
+      - name: Build Docker image
+        run: |
+          docker build -t spam-classifier .
